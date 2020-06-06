@@ -10,7 +10,7 @@
 dir=~/Documents/dotfiles # dotfiles directory
 olddir=~/dotfiles_old # old dotfiles backup directory
 
-files="vim vimrc zsh zshrc tmux.conf" # list of files/folders to symlink in homedir
+files="vim vimrc zsh zshrc tmux.conf zpreztorc" # list of files/folders to symlink in homedir
 
 ##########
 # create dotfiles_old in homedir
@@ -32,3 +32,27 @@ for file in $files; do
 
   ln -s $dir/$file ~/.$file
 done
+
+# Copy particular stuff
+
+## Prezto
+echo -n "Creating folder for prezto"
+  mkdir -p "~/.zprezto/modules/prompt/functions/"
+
+echo -n "Moving existing prompt_sorin_setup into $oldir"
+  mv ~/.zprezto/modules/prompt/functions/prompt_sorin_setup "$olddir/prompt_sorin_setup"
+
+echo -n "Creating symlink to prompt_sorin_setup file"
+
+ln -s $dir/prompt_sorin_setup. ~/.zprezto/modules/prompt/functions/prompt_sorin_setup
+
+## Vifm
+echo -n "Creating folder for vifm"
+  mkdir -p "~/.config/vifm/"
+
+echo -n "Moving existing vifmrc file into $olddir"
+  mv "~/.config/vifm/vifmrc" "$olddir/vifmrc"
+
+echo -n "Creating symlink to vifmrc file"
+
+ln -s $dir/vifmrc. ~/.config/vifm/vifmrc
