@@ -36,23 +36,24 @@ done
 # Copy particular stuff
 
 ## Prezto
-echo -n "Creating folder for prezto"
+echo -n "Creating folder for prezto "
   mkdir -p "~/.zprezto/modules/prompt/functions/"
+echo "done"
 
-echo -n "Moving existing prompt_sorin_setup into $oldir"
-  mv ~/.zprezto/modules/prompt/functions/prompt_sorin_setup "$olddir/prompt_sorin_setup"
+echo "Moving existing prompt_sorin_setup into $oldir"
+  mv "~/.zprezto/modules/prompt/functions/prompt_sorin_setup" "$olddir/prompt_sorin_setup"
 
 echo -n "Creating symlink to prompt_sorin_setup file"
-
-ln -s $dir/prompt_sorin_setup. ~/.zprezto/modules/prompt/functions/prompt_sorin_setup
+  ln -s $dir/prompt_sorin_setup ~/.zprezto/modules/prompt/functions/prompt_sorin_setup
+echo "done"
 
 ## Vifm
-echo -n "Creating folder for vifm"
+echo "Creating folder for vifm"
   mkdir -p "~/.config/vifm/"
 
-echo -n "Moving existing vifmrc file into $olddir"
+echo "Moving existing vifmrc file into $olddir"
   mv "~/.config/vifm/vifmrc" "$olddir/vifmrc"
 
 echo -n "Creating symlink to vifmrc file"
-
-ln -s $dir/vifmrc. ~/.config/vifm/vifmrc
+  ln -s $dir/vifmrc ~/.config/vifm/vifmrc
+echo "done"
