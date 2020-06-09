@@ -25,7 +25,7 @@ continous-running() { while true; do inotifywait $1 -r -e close_write && ${@:2};
 
 make_venv() {
     echo $(basename $(pwd) | awk '{print "conda activate "$1}') > $(pwd | awk '{print $1"/.autoenv.zsh"}')
-    echo $(basename $(pwd) | awk '{print "conda deactivate "$1}') > $(pwd | awk '{print $1"/.autoenv_leave.zsh"}')
+    echo $(basename $(pwd) | awk '{print "conda deactivate "}') > $(pwd | awk '{print $1"/.autoenv_leave.zsh"}')
 }
 
 alias cls="ls -lha --color=always -F --group-directories-first |awk '{k=0;s=0;for(i=0;i<=8;i++){;k+=((substr(\$1,i+2,1)~/[rwxst]/)*2^(8-i));};j=4;for(i=4;i<=10;i+=3){;s+=((substr(\$1,i,1)~/[stST]/)*j);j/=2;};if(k){;printf(\"%0o%0o \",s,k);};print;}'"
