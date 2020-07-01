@@ -33,4 +33,5 @@ alias lcs="ls -lhaS --color=always -F --group-directories-first |awk '{k=0;s=0;f
 
 alias open_keepass="keepassxc-cli open ~/Documents/keepassxc/main.kdbx --key-file ~/Documents/keepassxc/main.key"
 
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+
+#export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
