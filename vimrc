@@ -318,6 +318,8 @@ nnoremap <C-F> :Ag<CR>
 nnoremap <C-c> :15Gstatus<CR>
 " Search file name
 nnoremap <C-G> :Files<CR>
+" Search git file name
+nnoremap <C-X> :GFiles<CR>
 " Search buffers
 nnoremap <C-B> :Buffers<CR>
 " Open Flake8 error
@@ -350,4 +352,4 @@ nnoremap <c-right> :bnext<CR>
 nnoremap <Return> o<ESC>
 nnoremap <BS> O<ESC>
 
-nnoremap <C-X> %!xxd<CR>
+" nnoremap <C-X> %!xxd<CR>
