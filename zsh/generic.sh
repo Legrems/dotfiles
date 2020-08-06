@@ -18,8 +18,9 @@ fi
 unset __conda_setup
 #<<< conda initialize <<<
 
-export PATH=$HOME/Documents/Arcanite/git_ci_runner:$PATH
+export PATH=$HOME/custom_commands:$PATH
 export NB_MINIONS=4
+export VAGRANT_TYPE='abacus-abahost'
 export VISUAL=nvim
 export EDITOR=nvim
 

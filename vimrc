@@ -288,6 +288,8 @@ Plug 'https://github.com/ap/vim-css-color'
 
 Plug 'https://github.com/vifm/vifm.vim'
 
+Plug 'https://github.com/gregsexton/gitv', {'on': ['Gitv']}
+
 call plug#end()
 
 set clipboard=unnamedplus
