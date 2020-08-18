@@ -27,6 +27,9 @@ export AUTOENV_ENV_FILENAME='.autoenv.zsh'
 export AUTOENV_ENV_LEAVE_FILENAME='.autoenv_leave.zsh'
 export AUTOENV_ENABLE_LEAVE='yes'
 
+# To remove the conda env on ps1, run:
+# conda config --set changeps1 False
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval $(thefuck --alias)
