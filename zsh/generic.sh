@@ -28,4 +28,4 @@ export EDITOR=nvim
 
 eval $(thefuck --alias)
 
-source ~/.dotfiles/lib/zsh-autoenv/autoenv.zsh
+source ~/.autoenv/activate.sh
