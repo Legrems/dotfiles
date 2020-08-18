@@ -23,6 +23,9 @@ export NB_MINIONS=4
 export VAGRANT_TYPE='abacus-abahost'
 export VISUAL=nvim
 export EDITOR=nvim
+export AUTOENV_ENV_FILENAME='.autoenv.zsh'
+export AUTOENV_ENV_LEAVE_FILENAME='.autoenv_leave.zsh'
+export AUTOENV_ENABLE_LEAVE='yes'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
