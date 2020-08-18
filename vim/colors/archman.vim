@@ -38,7 +38,7 @@ hi FoldColmun ctermfg=246 ctermbg=235 cterm=NONE guifg=#909194 guibg=NONE gui=NO
 hi Normal guifg=#FFFFFF guibg=NONE gui=NONE
 hi Boolean ctermfg=56 ctermbg=NONE cterm=NONE guifg=#7F4EFE guibg=NONE gui=NONE
 hi Character ctermfg=56 ctermbg=NONE cterm=NONE guifg=#7F4EFE guibg=NONE gui=NONE
-hi Comment ctermfg=238 ctermbg=NONE cterm=NONE guifg=#76A9DB guibg=NONE gui=NONE
+hi Comment ctermfg=200 ctermbg=NONE cterm=NONE guifg=#76A9DB guibg=NONE gui=NONE
 hi Conditional ctermfg=96 ctermbg=NONE cterm=NONE guifg=#FF4143 guibg=NONE gui=NONE
 hi Constant ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 hi Define ctermfg=96 ctermbg=NONE cterm=NONE guifg=#FF4143 guibg=NONE gui=NONE
