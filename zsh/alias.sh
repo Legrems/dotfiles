@@ -17,7 +17,7 @@ rs() {python manage.py runserver 127.0.0."$1":"$2"}
 cheat() { curl cheat.sh/"$1" }
 cda() { conda activate "$@" }
 cdd() { conda deactivate "$@" }
-cdc() { conda create --name "$@" python=3.6 pip }
+cdc() { conda create --name "$@" python=3.7 pip ipython memory_profiler django-extensions psycopg2 pre-commit black isort }
 cdi() { conda info --envs "$@" }
 ca() { pygmentize -g "$@" }
 grepf() { grep -rnw ./ -e "$@"}
