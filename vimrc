@@ -175,6 +175,16 @@ command! -nargs=1 RandomString :normal a<c-r>=RandomString(<f-args>)<cr>
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 ""colorscheme desert
 
+"" Status line full path for filename
+function LightlineFilename()
+  let root = fnamemodify(get(b:, 'git_dir'), ':h')
+  let path = expand('%:p')
+  if path[:len(root)+1] ==# root
+    return path[len(root)+1:]
+  endif
+  return expand('%')
+endfunction
+
 " Bootstrap autoreload
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -235,6 +245,7 @@ let g:lightline = {
       \ },
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head',
+      \   'filename': 'LightlineFilename',
       \ },
       \ 'component_expand': {
       \   'gitdiff': 'lightline#gitdiff#get',
