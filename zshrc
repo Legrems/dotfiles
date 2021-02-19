@@ -9,3 +9,5 @@ source ~/.zsh/keys.sh
 
 # Alias
 source ~/.zsh/alias.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
