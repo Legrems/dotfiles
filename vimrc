@@ -403,6 +403,13 @@ Plug 'godlygeek/tabular'
 
 Plug 'plasticboy/vim-markdown'
 
+"Plug 'pwntester/octo.vim'
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 call plug#end()
 
 set clipboard=unnamedplus
@@ -430,7 +437,10 @@ set relativenumber
 " Search in files
 nnoremap <C-F> :Ag<CR>
 " Git status
-nnoremap <C-c> :15Gstatus<CR>
+" Old layout in the bottom
+"nnoremap <C-c> :15Gstatus<CR>
+" New layout vertical
+nnoremap <C-c> :vertical topleft Gstatus <bar> vertical resize 50<CR>
 " Search file name
 nnoremap <C-G> :Files<CR>
 " Search git file name
@@ -468,3 +478,12 @@ nnoremap <Return> o<ESC>
 nnoremap <BS> O<ESC>
 
 " nnoremap <C-X> %!xxd<CR>
+
+nnoremap <leader>/ <cmd>Telescope search_history<CR>
+nnoremap <leader>ch <cmd>Telescope command_history<CR>
+nnoremap <leader>gc <cmd>Telescope git_commits<CR>
+nnoremap <leader>gb <cmd>Telescope git_branches<CR>
+nnoremap <leader>gss <cmd>Telescope git_status<CR>
+nnoremap <leader>gsc <cmd>Telescope git_stash<CR>
+
+nnoremap <leader>iss <cmd>! glab issue list<CR>
