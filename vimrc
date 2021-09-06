@@ -203,6 +203,8 @@ Plug 'https://github.com/tpope/vim-fugitive'
 let g:statline_fugitive = 1
 let g:fugitive_gitlab_domains = ['https://git.arcanite.ch', 'https://git.polylan.ch']
 Plug 'https://github.com/junegunn/gv.vim'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://github.com/vim-syntastic/syntastic.git'
 let g:syntastic_auto_loc_list=0
 let g:syntastic_enable_loc_list=0
@@ -226,6 +228,14 @@ let g:gitgutter_eager = 0 " only update on read/write
 let g:gitgutter_sign_column_always = 0
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'https://github.com/junegunn/fzf.vim'
+let g:fzf_commits_log_options = '--format="%C(yellow)%h%d %s %C(cyan)(%aN) %C(black)%C(bold)%cr"'
+
+let g:fzf_preview_command = 'bat --color=always --plain {-1}'
+let g:fzf_preview_git_status_preview_command =
+    \ "[[ $(git diff --cached -- {-1}) != \"\" ]] && git diff --cached --color=always -- {-1} | delta || " .
+    \ "[[ $(git diff -- {-1}) != \"\" ]] && git diff --color=always -- {-1} | delta || " .
+    \ g:fzf_preview_command
+
 Plug 'https://github.com/shumphrey/fugitive-gitlab.vim'
 Plug 'https://tpope.io/vim/surround.git'
 Plug 'https://github.com/saltstack/salt-vim'
@@ -434,19 +444,38 @@ set splitright
 set relativenumber
 
 " Custom shortcuts
+"-------------------------------------------------------------------------------------------|
+"  Modes     | Normal | Insert | Command | Visual | Select | Operator | Terminal | Lang-Arg |
+" [nore]map  |    @   |   -    |    -    |   @    |   @    |    @     |    -     |    -     |
+" n[nore]map |    @   |   -    |    -    |   -    |   -    |    -     |    -     |    -     |
+" n[orem]ap! |    -   |   @    |    @    |   -    |   -    |    -     |    -     |    -     |
+" i[nore]map |    -   |   @    |    -    |   -    |   -    |    -     |    -     |    -     |
+" c[nore]map |    -   |   -    |    @    |   -    |   -    |    -     |    -     |    -     |
+" v[nore]map |    -   |   -    |    -    |   @    |   @    |    -     |    -     |    -     |
+" x[nore]map |    -   |   -    |    -    |   @    |   -    |    -     |    -     |    -     |
+" s[nore]map |    -   |   -    |    -    |   -    |   @    |    -     |    -     |    -     |
+" o[nore]map |    -   |   -    |    -    |   -    |   -    |    @     |    -     |    -     |
+" t[nore]map |    -   |   -    |    -    |   -    |   -    |    -     |    @     |    -     |
+" l[nore]map |    -   |   @    |    @    |   -    |   -    |    -     |    -     |    @     |
+"-------------------------------------------------------------------------------------------"
 " Search in files
 nnoremap <C-F> :Ag<CR>
+"nnoremap <C-F> :CocCommand fzf-preview.ProjectGrep<space>
 " Git status
 " Old layout in the bottom
 "nnoremap <C-c> :15Gstatus<CR>
 " New layout vertical
 nnoremap <C-c> :vertical topleft Gstatus <bar> vertical resize 50<CR>
 " Search file name
-nnoremap <C-G> :Files<CR>
+"nnoremap <C-G> :Files<CR>
+" Ignore ignored files => all files
+nnoremap <C-G> :CocCommand fzf-preview.DirectoryFiles --no-ignore-vcs<CR>
 " Search git file name
-nnoremap <C-X> :GFiles<CR>
+"nnoremap <C-X> :GFiles<CR>
+nnoremap <C-X> :CocCommand fzf-preview.DirectoryFiles<CR>
 " Search buffers
-nnoremap <C-B> :Buffers<CR>
+"nnoremap <C-B> :Buffers<CR>
+nnoremap <C-B> :CocCommand fzf-preview.Buffers<CR>
 " Open Flake8 error
 nnoremap <C-E> :Errors<CR>
 " Force write as unix type (/n instead of /r/n)
@@ -454,15 +483,18 @@ nnoremap <C-s> :w! ++ff=unix<CR>
 " Force quit
 nnoremap <C-q> :q!<CR>
 " Split diff
-nnoremap <C-d> :Gdiffsplit<CR>
+" nnoremap <C-d> :Gdiffsplit<CR>
+nnoremap <C-d> :tab Git diff %<CR>
+nnoremap <C-p> :tab Git diff<CR>
+" Using git-delta
 " Buffer 
 
 "" F1-12 Shortcuts
 nnoremap <F1> :tabprevious<CR>
 nnoremap <F2> :tabnext<CR>
 nnoremap <F3> :GV<CR>
-nnoremap <F5> :Git add %<CR>
-nnoremap <F6> :Gcommit<CR>
+nnoremap <F4> :tab Git show -
+nnoremap <F5> :Git rebase -i HEAD~
 nnoremap <F7> :SyntasticCheck<CR>
 nnoremap <F8> :SyntasticReset<CR>
 
@@ -480,10 +512,20 @@ nnoremap <BS> O<ESC>
 " nnoremap <C-X> %!xxd<CR>
 
 nnoremap <leader>/ <cmd>Telescope search_history<CR>
-nnoremap <leader>ch <cmd>Telescope command_history<CR>
-nnoremap <leader>gc <cmd>Telescope git_commits<CR>
-nnoremap <leader>gb <cmd>Telescope git_branches<CR>
-nnoremap <leader>gss <cmd>Telescope git_status<CR>
-nnoremap <leader>gsc <cmd>Telescope git_stash<CR>
+"nnoremap <leader>ch <cmd>Telescope command_history<CR>
+nnoremap <leader>ch <cmd>CocCommand fzf-preview.CommandPalette<CR>
+"nnoremap <leader>gc <cmd>Telescope git_commits<CR>
+nnoremap <leader>gc <cmd>CocCommand fzf-preview.GitLogs<CR>
+"nnoremap <leader>gb <cmd>Telescope git_branches<CR>
+nnoremap <leader>gb <cmd>CocCommand fzf-preview.GitBranches<CR>
+"nnoremap <leader>gss <cmd>Telescope git_status<CR>
+nnoremap <leader>gss <cmd>CocCommand fzf-preview.GitStatus<CR>
+"nnoremap <leader>gsc <cmd>Telescope git_stash<CR>
+nnoremap <leader>gsc <cmd>CocCommand fzf-preview.GitStashes<CR>
 
 nnoremap <leader>iss <cmd>! glab issue list<CR>
+
+" Copy into temp file
+vmap <leader>y :w! /tmp/vimtmp<CR>
+" Read from temp file
+nmap <leader>p :r! cat /tmp/vimtmp<CR>

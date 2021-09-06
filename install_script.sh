@@ -1,5 +1,5 @@
 # Generic
-sudo apt install zsh neovim silversearcher-ag fzf nnn vifm thefuck
+sudo apt install zsh neovim silversearcher-ag fzf nnn vifm thefuck ripgrep
 
 # SSH Key
 ssh-keygen -t ed25519 -C "flamelegrems@gmail.com"
