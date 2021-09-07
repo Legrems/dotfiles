@@ -245,10 +245,11 @@ Plug 'https://github.com/itchyny/lightline.vim'
 let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'filename', 'readonly', 'modified' ],
+      \             [ 'filename', 'readonly', 'modified' ],
       \             [ 'gitdiff' ] ],
       \   'right': [ [ 'lineinfo' ],
-      \              [ 'percent' ] ]
+      \              [ 'percent' ],
+      \              [ 'gitbranch' ] ]
       \ },
       \ 'inactive': {
       \   'left': [ [ 'filename', 'gitversion' ] ],
