@@ -21,6 +21,7 @@ unset __conda_setup
 export PATH=$HOME/custom_commands:$PATH
 export NB_MINIONS=4
 export VAGRANT_TYPE='abacus-abahost'
+export NB_HAPROXY=2
 export VISUAL=nvim
 export EDITOR=nvim
 export AUTOENV_ENV_FILENAME='.autoenv.zsh'

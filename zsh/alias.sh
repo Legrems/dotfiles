@@ -12,6 +12,10 @@ alias mg='python manage.py migrate'
 alias gp='git push'
 alias ga!='git commit --amend --no-edit --date now'
 
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
+
 rs() {python manage.py runserver 127.0.0."$1":"$2"}
 
 cheat() { curl cheat.sh/"$1" }
@@ -23,6 +27,7 @@ ca() { pygmentize -g "$@" }
 grepf() { grep -rnw ./ -e "$@"}
 amendnow() { GIT_COMMITTER_DATE="$(date +%d/%m/%Y' '%H:%M:%S)" git commit --amend --no-edit --date "$(date +%d/%m/%Y' '%H:%M:%S)" }
 continous-running() { while true; do inotifywait $1 -r -e close_write && ${@:2}; done }
+f() { find . -name "*$1*"; }
 
 make_venv() {
     echo $(basename $(pwd) | awk '{print "conda activate "$1}') > $(pwd | awk '{print $1"/.autoenv.zsh"}')
