@@ -436,7 +436,7 @@ set modifiable
 nnoremap <leader>ct :set cursorline!<CR>
 
 " Folding
-set foldnestmax=2
+set foldnestmax=10
 set foldmethod=indent
 
 set nofoldenable

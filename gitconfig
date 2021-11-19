@@ -1,0 +1,40 @@
+[user]
+	email = loic.gremaud@arcanite.ch
+	name = Loïc Gremaud
+    signingkey = 8B2741BF148B1059065A71EEE81E8B180465D116 ;540
+    ;signingkey = BAE2CD06F0A3753A0F8D0A21D4620E6DF3E0121D ;539
+    ;signingkey = 4F78275C96E34F56920CF7B5CACB2A128E557EFD ;W
+    token = REPLACE HERE TOKEN
+[commit]
+	gpgSign = true
+[gpg]
+	program = gpg2
+[tag]
+	forceSignAnnotated = false
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
+	adog = log --all --decorate --oneline --graph
+	dog = log --decorate --oneline --graph
+[core]
+    editor = nvim
+	excludesfile = /home/legrems/.gitignore_global
+[push]
+	default = current
+
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+[delta]
+    plus-style = "syntax #012800"
+    minus-style = "syntax #340001"
+    syntax-theme = Monokai Extended
+    navigate = true
+    side-by-side = true
+[interactive]
+    diffFilter = delta --color-only
