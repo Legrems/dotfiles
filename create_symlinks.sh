@@ -7,10 +7,13 @@
 
 ########## Variables
 
-dir=~/Documents/dotfiles # dotfiles directory
+dir=/home/legrems/Documents/dotfiles # dotfiles directory
 olddir=~/dotfiles_old # old dotfiles backup directory
 
-files="vim vimrc zsh zshrc tmux.conf zpreztorc gitconfig gitignore_global" # list of files/folders to symlink in homedir
+files="vim vimrc zsh zshrc tmux.conf zpreztorc gitconfig gitignore_global Xresources xprofile zprofile xinitrc" # list of files/folders to symlink in homedir
+
+configdirs="i3 keepassxc nvim rofi trizen polybar"
+
 
 ##########
 # create dotfiles_old in homedir
@@ -28,9 +31,19 @@ for file in $files; do
 
   echo "Moving any existing dotfiles from ~ to $olddir"
     mv ~/.$file ~/dotfiles_old/
-  echo "Creating symlink to $file in home directory."
 
-  ln -s $dir/$file ~/.$file
+  echo "Creating symlink to $file in home directory."
+    ln -s $dir/$file ~/.$file
+done
+
+# move any existing dotdirs in ~/.config to dotfiles_old directory, then create symlinks from the homedir to any files in the config directory specified in $configdirs
+for configdir in $configdirs; do
+
+    echo "Moving any existing config dir from ~/.config to $olddir"
+      mv ~/.config/$configdir ~/dotfiles_old/ -f
+
+    echo "Creating symlink to $configdir in ~/.config directory."
+      ln -s $dir/config/$configdir ~/.config/$configdir
 done
 
 # Copy particular stuff

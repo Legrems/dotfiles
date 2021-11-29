@@ -466,7 +466,7 @@ nnoremap <C-F> :Ag<CR>
 " Old layout in the bottom
 "nnoremap <C-c> :15Gstatus<CR>
 " New layout vertical
-nnoremap <C-c> :vertical topleft Gstatus <bar> vertical resize 50<CR>
+nnoremap <C-c> :vertical topleft Git <bar> vertical resize 50<CR>
 " Search file name
 "nnoremap <C-G> :Files<CR>
 " Ignore ignored files => all files

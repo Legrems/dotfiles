@@ -1,0 +1,76 @@
+#define white #F6F3E8
+#define black #242424
+#define blue #678FdF
+#define yellow #FFFF00
+#define red #E5786D
+#define lightred #E5000C
+#define green #95E454
+#define lightgreen #CAE682
+#define cyan #8AC6F2
+#define magenta #FF87EC
+#define orange #ef9d00
+#define darkred #630000
+
+URxvt*foreground: white
+URxvt*background: black
+! black
+*color0: black
+*color8: black
+! red
+*color1: red
+*color9: red
+! green
+*color2: green
+*color10: lightgreen
+! yellow
+*color3: yellow
+*color11: yellow
+! blue
+*color4: blue
+*color12: blue
+! magenta
+*color5: magenta
+*color13: magenta
+! cyan
+*color6: cyan
+*color14: cyan
+! white
+*color7: white
+*color15: #FFFFFF
+
+
+URxvt*transparent: true
+URxvt*shading: 10
+
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintfull
+Xft.rgba: rgb
+
+!URxvt*font: xft:DejaVuSansMono:size=8:style=dzForPowerline
+URxvt*font: xft:Courier New:size=18
+
+URxvt.perl-ext-common:  default,matcher,font-size
+URxvt.urlLauncher:      xdg-open
+URxvt.matcher.button:   1
+URxvt*scrollstyle: plain
+URxvt*internalBorder: 0
+URxvt*scrollBar: false
+URxvt*scrollBar_right: true
+URxvt*transpscrollbar: false
+URxvt*scrollColor: #aaaaaa
+
+URxvt.perl-ext:      default,url-select
+URxvt.keysym.M-u:    perl:url-select:select_next
+URxvt.url-select.launcher:   /usr/bin/chromium -new-tab
+URxvt.url-select.underline: true
+
+URxvt.saveLines: 200000
+
+URxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease
+URxvt.keysym.C-S-Up:   font-size:incglobal
+URxvt.keysym.C-S-Down: font-size:decglobal
+URxvt.keysym.C-equal:  font-size:reset
+URxvt.keysym.C-slash:  font-size:show
+URxvt.searchable-scrollback: Meta-Shift-S
