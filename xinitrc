@@ -46,10 +46,11 @@ $HOME/.config/xrandr-magic.sh $MONITOR
 $HOME/.config/manipulate_monitors.sh $MONITOR rtl
 
 # Swap caps + escape
-setxkbmap -option caps:escape
+setxkbmap -option caps:swapescape
 
 # Set background
-feh --bg-fill ~/Downloads/Marmotamaps_Wallpaper_Mont_Blanc_Desktop.jpg
+feh --bg-fill ~/Downloads/atlantis-nexus-nebula-black-background-digital-render-3840x2400-3704.jpg
 
 # Launch i3
 exec i3
+/usr/bin/prime-offload

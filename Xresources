@@ -40,15 +40,16 @@ URxvt*background: black
 
 
 URxvt*transparent: true
-URxvt*shading: 10
+URxvt*shading: 90
 
 Xft.antialias: true
 Xft.hinting: true
 Xft.hintstyle: hintfull
 Xft.rgba: rgb
+Xft.dpi: 282
 
 !URxvt*font: xft:DejaVuSansMono:size=8:style=dzForPowerline
-URxvt*font: xft:Courier New:size=18
+URxvt*font: xft:Courier New:size=8
 
 URxvt.perl-ext-common:  default,matcher,font-size
 URxvt.urlLauncher:      xdg-open
