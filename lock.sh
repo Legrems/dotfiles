@@ -1,11 +1,11 @@
 #!/bin/sh
 
 BLANK='#00000000'
-CLEAR='#ffffff22'
-DEFAULT='#ff00ffcc'
-TEXT='#ee00eeee'
-WRONG='#880000bb'
-VERIFYING='#bb00bbbb'
+CLEAR='#ffffffbb'
+DEFAULT='#ffffffbb'
+TEXT='#888888bb'
+WRONG='#000000bb'
+VERIFYING='#444444bb'
 
 i3lock \
 --insidever-color=$CLEAR     \

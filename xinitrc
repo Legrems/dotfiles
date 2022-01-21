@@ -49,7 +49,8 @@ $HOME/.config/manipulate_monitors.sh $MONITOR rtl
 setxkbmap -option caps:swapescape
 
 # Set background
-feh --bg-fill ~/Downloads/atlantis-nexus-nebula-black-background-digital-render-3840x2400-3704.jpg
+#feh --bg-fill ~/Downloads/atlantis-nexus-nebula-black-background-digital-render-3840x2400-3704.jpg
+feh --bg-fill ~/Downloads/digital-abstract-3d-render-pattern-minimal-art-black-3840x2160-7124.jpg
 
 # Launch i3
 exec i3

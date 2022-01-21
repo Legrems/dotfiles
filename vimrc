@@ -470,10 +470,12 @@ nnoremap <C-c> :vertical topleft Git <bar> vertical resize 50<CR>
 " Search file name
 "nnoremap <C-G> :Files<CR>
 " Ignore ignored files => all files
-nnoremap <C-G> :CocCommand fzf-preview.DirectoryFiles --no-ignore-vcs<CR>
+"nnoremap <C-G> :CocCommand fzf-preview.DirectoryFiles --no-ignore-vcs<CR>
+nnoremap <C-G> :CocCommand fzf-preview.ProjectFiles<CR>
 " Search git file name
 "nnoremap <C-X> :GFiles<CR>
-nnoremap <C-X> :CocCommand fzf-preview.DirectoryFiles<CR>
+"nnoremap <C-X> :CocCommand fzf-preview.DirectoryFiles<CR>
+nnoremap <C-X> :CocCommand fzf-preview.GitFiles<CR>
 " Search buffers
 "nnoremap <C-B> :Buffers<CR>
 nnoremap <C-B> :CocCommand fzf-preview.Buffers<CR>

@@ -20,7 +20,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:DejaVu Sans Mono 6
+font pango:DejaVu Sans Mono 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -129,6 +129,17 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
+# Resizing windows
+bindsym $mod+Ctrl+Shift+Up resize shrink height 10 px or 10 ppt
+bindsym $mod+Ctrl+Shift+Down resize grow height 10 px or 10 ppt
+bindsym $mod+Ctrl+Shift+Right resize shrink width 10 px or 10 ppt
+bindsym $mod+Ctrl+Shift+Left resize grow width 10 px or 10 ppt
+
+bindsym $mod+Ctrl+Shift+k resize shrink height 10 px or 10 ppt
+bindsym $mod+Ctrl+Shift+j resize grow height 10 px or 10 ppt
+bindsym $mod+Ctrl+Shift+l resize shrink width 10 px or 10 ppt
+bindsym $mod+Ctrl+Shift+h resize grow width 10 px or 10 ppt
 
 # split in horizontal orientation
 bindsym $mod+b split h
@@ -286,7 +297,8 @@ bar {
 
     # separator_symbol "ʃ"
     #separator_symbol "❰"
-    separator_symbol "|"
+    #separator_symbol "|"
+    separator_symbol "ǁ"
 
 
     strip_workspace_name no
