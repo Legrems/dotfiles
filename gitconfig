@@ -19,12 +19,12 @@
 	d = difftool
 	adog = log --all --decorate --oneline --graph
 	dog = log --decorate --oneline --graph
-[core]
-    editor = nvim
-	excludesfile = /home/legrems/.gitignore_global
 [push]
 	default = current
-
+[core]
+    editor = nvim
+    pager = delta
+	excludesfile = /home/legrems/.gitignore_global
 [pager]
     diff = delta
     log = delta

@@ -2,6 +2,6 @@
 
 configuration {
   show-icons:         true;
-  font: "Courier New 32";
+  font: "Courier New 12";
   icon-theme:         "Papirus";
 }

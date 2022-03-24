@@ -202,7 +202,8 @@ Plug 'https://github.com/millermedeiros/vim-statline.git'
 Plug 'https://github.com/tpope/vim-fugitive'
 let g:statline_fugitive = 1
 let g:fugitive_gitlab_domains = ['https://git.arcanite.ch', 'https://git.polylan.ch']
-Plug 'https://github.com/junegunn/gv.vim'
+"Plug 'https://github.com/junegunn/gv.vim'
+Plug 'https://github.com/Legrems/gv.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://github.com/vim-syntastic/syntastic.git'
@@ -248,7 +249,6 @@ let g:lightline = {
       \             [ 'filename', 'readonly', 'modified' ],
       \             [ 'gitdiff' ] ],
       \   'right': [ [ 'lineinfo' ],
-      \              [ 'percent' ],
       \              [ 'gitbranch' ] ]
       \ },
       \ 'inactive': {
@@ -265,6 +265,7 @@ let g:lightline = {
       \   'gitdiff': 'middle',
       \ },
       \ }
+
 Plug 'https://github.com/preservim/nerdcommenter'
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 0
@@ -512,8 +513,6 @@ nnoremap <c-right> :bnext<CR>
 nnoremap <Return> o<ESC>
 nnoremap <BS> O<ESC>
 
-" nnoremap <C-X> %!xxd<CR>
-
 nnoremap <leader>/ <cmd>Telescope search_history<CR>
 "nnoremap <leader>ch <cmd>Telescope command_history<CR>
 nnoremap <leader>ch <cmd>CocCommand fzf-preview.CommandPalette<CR>
@@ -532,3 +531,9 @@ nnoremap <leader>iss <cmd>! glab issue list<CR>
 vmap <leader>y :w! /tmp/vimtmp<CR>
 " Read from temp file
 nmap <leader>p :r! cat /tmp/vimtmp<CR>
+
+" Copy filename + line number into clipboard
+nmap <leader>oo :call setreg('+', expand("%:h") . "/" . expand("%:t") . "#L" . line("."))<CR>
+
+
+nmap <leader>xx :%!xxd<CR>

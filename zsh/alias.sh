@@ -29,6 +29,12 @@ amendnow() { GIT_COMMITTER_DATE="$(date +%d/%m/%Y' '%H:%M:%S)" git commit --amen
 continous-running() { while true; do inotifywait $1 -r -e close_write && ${@:2}; done }
 f() { find . -name "*$1*"; }
 
+tar-create() {tar cfv $@}
+tar-list() {tar -tvf $@}
+tar-extract() {tar xfv $@}
+us-layout() {setxkbmap us -option caps:swapescape }
+usint-layout() {setxkbmap us -variant intl -option caps:swapescape }
+
 make_venv() {
     echo $(basename $(pwd) | awk '{print "conda activate "$1}') > $(pwd | awk '{print $1"/.autoenv.zsh"}')
     echo $(basename $(pwd) | awk '{print "conda deactivate "}') > $(pwd | awk '{print $1"/.autoenv_leave.zsh"}')

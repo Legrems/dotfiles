@@ -98,8 +98,6 @@ bindsym $mod+o exec ~/lock.sh
 #bindsym $mod+o exec slimlock
 # ristretto
 bindsym $mod+e exec thunar
-# Xournal
-bindsym $mod+n exec xournalpp
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -297,8 +295,11 @@ bar {
 
     # separator_symbol "ʃ"
     #separator_symbol "❰"
+    separator_symbol " ❱ "
+    #separator_symbol " ▷ "
+    #separator_symbol " ∠ "
     #separator_symbol "|"
-    separator_symbol "ǁ"
+    #separator_symbol "ǁ"
 
 
     strip_workspace_name no
