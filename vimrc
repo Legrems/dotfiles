@@ -223,6 +223,9 @@ let g:syntastic_python_flake8_post_args='--ignore=E501,E128'
 let g:syntastic_python_pep8_post_args='--ignore=E501,E128'
 let g:syntastic_check_on_open=1
 
+Plug 'https://github.com/vim-python/python-syntax'
+let g:python_highlight_all=1
+
 Plug 'https://github.com/gioele/vim-autoswap'
 Plug 'https://github.com/airblade/vim-gitgutter'
 let g:gitgutter_eager = 0 " only update on read/write
