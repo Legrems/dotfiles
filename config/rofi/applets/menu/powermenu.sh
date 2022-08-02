@@ -21,6 +21,13 @@ lock=""
 suspend=""
 logout=""
 
+shutdown="\u23fc"
+reboot="\ufc07"
+lock="\uf023"
+lock="\U0001f512"
+suspend="\uf9b1"
+logout="\uf842"
+
 # Confirmation
 confirm_exit() {
 	rofi -dmenu\

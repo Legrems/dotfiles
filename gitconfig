@@ -1,10 +1,9 @@
 [user]
-	email = loic.gremaud@arcanite.ch
+	email = flamelegrems@gmail.com
 	name = Loïc Gremaud
     ;signingkey = 8B2741BF148B1059065A71EEE81E8B180465D116 ;540
     signingkey = BAE2CD06F0A3753A0F8D0A21D4620E6DF3E0121D ;539
     ;signingkey = 4F78275C96E34F56920CF7B5CACB2A128E557EFD ;W
-    token = REPLACE HERE TOKEN
 [commit]
 	gpgSign = true
 [gpg]

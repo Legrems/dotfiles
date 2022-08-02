@@ -85,7 +85,8 @@ bindsym $mod+w kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+r exec dmenu_run
-bindsym $mod+r exec --no-startup-id ~/.config/rofi/bin/menu_powermenu
+#bindsym $mod+r exec --no-startup-id ~/.config/rofi/bin/menu_powermenu
+bindsym $mod+r exec --no-startup-id ~/rofi/files/powermenu/type-2/powermenu.sh
 # start rofi
 bindsym $mod+p exec rofi -show run
 # switch rofi
@@ -97,7 +98,7 @@ bindsym $mod+c exec --no-startup-id ~/.config/rofi/bin/menu_time
 bindsym $mod+o exec ~/lock.sh
 #bindsym $mod+o exec slimlock
 # ristretto
-bindsym $mod+e exec thunar
+bindsym $mod+e exec nemo
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -288,16 +289,7 @@ assign [class="MineTime"] 7
 # bindsym $mod+r mode "resize"
 
 # Workspace config
-workspace 1 output eDP1
-workspace 2 output eDP1
-workspace 3 output HDMI2 eDP1
-workspace 4 output HDMI2 eDP1
-workspace 5 output HDMI2 eDP1
-workspace 6 output HDMI2 eDP1
-workspace 7 output eDP1
-workspace 8 output eDP1
-workspace 9 output eDP1
-workspace 10 output HDMI2 eDP1
+#workspace 1 output DisplayPort-2
 
 # i3 bar configuration
 # ----------------------------------------------------------------------------
@@ -309,7 +301,7 @@ bar {
     status_command py3status
 
     position top
-    tray_output primary
+    tray_output DisplayPort-2
 
     colors {
         background #000000
@@ -325,9 +317,9 @@ bar {
         binding_mode       #2f343a #900000 #ffffff
     }
 
-    # separator_symbol "ʃ"
+    separator_symbol "ʃ"
     #separator_symbol "❰"
-    separator_symbol " ❱ "
+    #separator_symbol " ❱ "
     #separator_symbol " ▷ "
     #separator_symbol " ∠ "
     #separator_symbol "|"

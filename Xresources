@@ -52,8 +52,8 @@ URxvt.perl-ext-common:  default,matcher,resize-font
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 
-!URxvt*font: xft:DejaVuSansMono:size=8:style=dzForPowerline
-URxvt*font: xft:Courier New:size=12
+!URxvt*font: xft:DejaVuSansMono:size=12:style=dzForPowerline
+URxvt*font: xft:Courier New:size=12:style=dzForPowerline
 URxvt.letterSpace: -1
 !URxvt.keysym.Alt-Up:   resize-font:bigger
 !URxvt.keysym.Alt-Down: resize-font:smaller
@@ -71,7 +71,7 @@ URxvt*scrollColor: #aaaaaa
 
 URxvt.perl-ext:      default,url-select
 URxvt.keysym.M-u:    perl:url-select:select_next
-URxvt.url-select.launcher:   /usr/bin/chromium -new-tab
+URxvt.url-select.launcher:   firefox
 URxvt.url-select.underline: true
 
 URxvt.saveLines: 200000

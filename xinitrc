@@ -45,13 +45,16 @@ xrandr --auto
 $HOME/.config/xrandr-magic.sh $MONITOR
 $HOME/.config/manipulate_monitors.sh $MONITOR rtl
 
+xinput --set-prop "pointer:Razer Razer DeathAdder V2" 'libinput Accel Speed' -0.1
+
 # Swap caps + escape
 setxkbmap -option caps:swapescape
 
+#~/.screenlayout/wide.sh
+~/.screenlayout/swide.sh
+
 # Set background
-#feh --bg-fill ~/Downloads/atlantis-nexus-nebula-black-background-digital-render-3840x2400-3704.jpg
-#feh --bg-fill ~/Downloads/digital-abstract-3d-render-pattern-minimal-art-black-3840x2160-7124.jpg
-feh --bg-fill ~/Downloads/wp2618248-blackarch-wallpaper.png
+feh --bg-fill ~/Downloads/wp4473722-5120x1440-wallpapers.jpg
 
 # Launch i3
 exec i3
