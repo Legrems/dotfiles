@@ -40,13 +40,13 @@ URxvt*background: black
 
 
 URxvt*transparent: true
-URxvt*shading: 40
+URxvt*shading: 20
 
 Xft.antialias: true
 Xft.hinting: true
 Xft.hintstyle: hintfull
 Xft.rgba: rgb
-Xft.dpi: 80
+Xft.dpi: 140
 
 URxvt.perl-ext-common:  default,matcher,resize-font
 URxvt.iso14755: false

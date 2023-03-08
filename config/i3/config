@@ -85,11 +85,11 @@ bindsym $mod+w kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+r exec dmenu_run
-bindsym $mod+r exec --no-startup-id ~/.config/rofi/bin/menu_powermenu
+bindsym $mod+r exec --no-startup-id ~/.config/rofi/bin/menu_powermenu -font "hack 18"
 # start rofi
-bindsym $mod+p exec rofi -show run
+bindsym $mod+p exec rofi -show run -font "hack 18"
 # switch rofi
-bindsym $mod+q exec rofi -show window
+bindsym $mod+q exec rofi -show window -font "hack 18"
 # ssh rofi
 #bindsym $mod+c exec rofi -show ssh
 bindsym $mod+c exec --no-startup-id ~/.config/rofi/bin/menu_time
