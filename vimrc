@@ -116,7 +116,6 @@ imap <c-l> <space>=><space>
 " Can't be bothered to understand ESC vs <c-c> in insert mode
 imap <c-c> <esc>
 " Clear the search buffer when hitting return
-:nnoremap <CR> :nohlsearch<cr>
 nnoremap <leader><leader> <c-^>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -185,6 +184,8 @@ function LightlineFilename()
   return expand('%')
 endfunction
 
+"set statusline+=%{gutentags#statusline()}
+
 " Bootstrap autoreload
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -193,6 +194,9 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+
+Plug 'liuchengxu/space-vim-dark'
+Plug 'kyoz/purify', { 'rtp': 'vim' }
 
 Plug 'https://github.com/preservim/nerdtree'
 Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
@@ -258,7 +262,7 @@ let g:lightline = {
       \   'left': [ [ 'filename', 'gitversion' ] ],
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'fugitive#head',
+      \   'gitbranch': 'FugitiveHead',
       \   'filename': 'LightlineFilename',
       \ },
       \ 'component_expand': {
@@ -288,8 +292,8 @@ let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
 
-Plug 'https://github.com/mcchrish/nnn.vim'
-nnoremap <leader>nn :NnnPicker -de '%:p:h'<CR>
+"Plug 'https://github.com/mcchrish/nnn.vim'
+"nnoremap <leader>nn :NnnPicker -de '%:p:h'<CR>
 
 let g:nnn#action = {
   \ '<c-t>': 'tab-split',
@@ -355,7 +359,10 @@ let g:mkdp_open_ip = ''
 
 " specify browser to open preview page
 " default: ''
-let g:mkdp_browser = ''
+function OpenMarkdownPreview (url)
+    execute "silent ! firefox --new-window " . a:url
+  endfunction
+let g:mkdp_browserfunc = 'OpenMarkdownPreview'
 
 " set to 1, echo preview page url in command line when open preview page
 " default is 0
@@ -419,11 +426,29 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
 "Plug 'pwntester/octo.vim'
-"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'fannheyward/telescope-coc.nvim'
+
+Plug 'https://github.com/ludovicchabant/vim-gutentags.git'
+
+" API testing
+"Plug 'baverman/vial'
+"Plug 'baverman/vial-http'
+
+Plug 'emaniacs/vim-rest-console'
+
+let g:vrc_output_buffer_name = '__VRC_OUTPUT.json'
+
+let g:python3_host_prog = "/home/legrems/miniconda3/bin/python"
+let g:vial_python = 'python3'
+
+
+set hidden
+filetype plugin on
 
 call plug#end()
 
@@ -496,14 +521,18 @@ nnoremap <C-p> :tab Git diff<CR>
 " Using git-delta
 " Buffer 
 
+" Bind a command to exclude some file extensions in the Ag search
+" command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--ignore="*.js,*html"', fzf#vim#with_preview(), <bang>0)
+
 "" F1-12 Shortcuts
 nnoremap <F1> :tabprevious<CR>
 nnoremap <F2> :tabnext<CR>
 nnoremap <F3> :GV<CR>
 nnoremap <F4> :tab Git show -
 nnoremap <F5> :Git rebase -i HEAD~
-nnoremap <F7> :SyntasticCheck<CR>
-nnoremap <F8> :SyntasticReset<CR>
+
+nnoremap <leader>gp :Git pull<CR>
+nnoremap <leader>gnb :Git checkout -b 
 
 " Fold / unfold with space
 nnoremap <space> za
@@ -513,22 +542,35 @@ nnoremap <leader>dl <HOME>d$
 nnoremap <c-left> :bprevious<CR>
 nnoremap <c-right> :bnext<CR>
 
+" Goto file under location
+nnoremap <leader>gf :vertical wincmd f<CR>
+
 nnoremap <Return> o<ESC>
 nnoremap <BS> O<ESC>
 
-nnoremap <leader>/ <cmd>Telescope search_history<CR>
-"nnoremap <leader>ch <cmd>Telescope command_history<CR>
-nnoremap <leader>ch <cmd>CocCommand fzf-preview.CommandPalette<CR>
-"nnoremap <leader>gc <cmd>Telescope git_commits<CR>
-nnoremap <leader>gc <cmd>CocCommand fzf-preview.GitLogs<CR>
-"nnoremap <leader>gb <cmd>Telescope git_branches<CR>
-nnoremap <leader>gb <cmd>CocCommand fzf-preview.GitBranches<CR>
-"nnoremap <leader>gss <cmd>Telescope git_status<CR>
-nnoremap <leader>gss <cmd>CocCommand fzf-preview.GitStatus<CR>
-"nnoremap <leader>gsc <cmd>Telescope git_stash<CR>
-nnoremap <leader>gsc <cmd>CocCommand fzf-preview.GitStashes<CR>
+"nnoremap <leader>ra <cmd>CocCommand rest-client.request<CR>
+nnoremap <leader>ra <cmd>call VrcQuery()<CR>
 
-nnoremap <leader>iss <cmd>! glab issue list<CR>
+nnoremap <leader>rr <cmd>source $MYVIMRC<CR>
+nnoremap <leader>ww <cmd>Telescope coc commands<CR>
+
+nnoremap <leader>/ <cmd>Telescope search_history<CR>
+nnoremap <leader>ch <cmd>Telescope command_history<CR>
+"nnoremap <leader>ch <cmd>CocCommand fzf-preview.CommandPalette<CR>
+nnoremap <leader>gk <cmd>CocCommand fzf-preview.GitActions<CR>
+"nnoremap <leader>gc <cmd>Telescope git_commits<CR>
+nnoremap <leader>gc <cmd>lua require('telescope.custom').my_git_commits()<CR>
+"nnoremap <leader>gc <cmd>CocCommand fzf-preview.GitLogs<CR>
+nnoremap <leader>gbb <cmd>Telescope git_branches<CR>
+nnoremap <leader>gbc <cmd>lua require('telescope.custom').my_git_bcommits()<CR>
+"nnoremap <leader>gb <cmd>CocCommand fzf-preview.GitBranches<CR>
+"nnoremap <leader>gss <cmd>Telescope git_status<CR>
+nnoremap <leader>gss <cmd>lua require('telescope.custom').my_git_status()<CR>
+"nnoremap <leader>gss <cmd>CocCommand fzf-preview.GitStatus<CR>
+nnoremap <leader>gsh <cmd>Telescope git_stash<CR>
+"nnoremap <leader>gsc <cmd>CocCommand fzf-preview.GitStashes<CR>
+
+"nnoremap <leader>iss <cmd>! glab issue list<CR>
 
 " Copy into temp file
 vmap <leader>y :w! /tmp/vimtmp<CR>
@@ -540,3 +582,18 @@ nmap <leader>oo :call setreg('+', expand("%:h") . "/" . expand("%:t") . "#L" . l
 
 
 nmap <leader>xx :%!xxd<CR>
+
+nnoremap <Leader>n :noh<CR>
+
+colorscheme space-vim-dark
+
+hi Normal   ctermbg=NONE guibg=NONE
+hi LineNr   ctermbg=NONE guibg=NONE
+hi SignColumn   ctermbg=NONE guibg=NONE
+hi Comment  guifg=#5C6370 ctermfg=59
+
+" Load custom telescope modification
+lua require('telescope.custom')
+
+" Load telescope-coc extension
+lua require('telescope').load_extension('coc')

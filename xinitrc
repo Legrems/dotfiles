@@ -41,9 +41,8 @@ fi
 # exec xterm -geometry 80x66+0+0 -name login
 
 xrandr --setprovideroutputsource modesetting NVIDIA-0
-xrandr --auto
-$HOME/.config/xrandr-magic.sh $MONITOR
-$HOME/.config/manipulate_monitors.sh $MONITOR rtl
+#xrandr --auto
+xrandr --output eDP1 --mode 2560x1440 --scale 1x1 --primary
 
 xinput --set-prop "pointer:Razer Razer DeathAdder V2" 'libinput Accel Speed' -0.1
 
@@ -55,6 +54,8 @@ setxkbmap -option caps:swapescape
 
 # Set background
 feh --bg-fill ~/Downloads/wp4473722-5120x1440-wallpapers.jpg
+
+xfsettingsd --sm-client-disable &
 
 # Launch i3
 exec i3
