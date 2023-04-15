@@ -40,7 +40,7 @@ URxvt*background: black
 
 
 URxvt*transparent: true
-URxvt*shading: 40
+URxvt*shading: 10
 
 Xft.antialias: true
 Xft.hinting: true

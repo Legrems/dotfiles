@@ -53,14 +53,14 @@ default_floating_border none
 # class                 border  backgr. text    indicator child_border
 client.focused          #ffffff #888888 #000000 #ffffff   #888888
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #ff0000 #040404 #888888 #444444   #444444
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.unfocused        #a000ff #040404 #888888 #444444   #444444
+client.urgent           #2f343a #600099 #ffffff #600099   #600099
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #000000
 
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +7%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +8%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -7%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
@@ -87,9 +87,11 @@ bindsym $mod+w kill
 #bindsym $mod+r exec dmenu_run
 bindsym $mod+r exec --no-startup-id ~/.config/rofi/bin/menu_powermenu
 # start rofi
-bindsym $mod+p exec rofi -show run
+bindsym $mod+p exec "rofi -modes combi -show combi run,window"
 # switch rofi
 bindsym $mod+q exec rofi -show window
+# rofi fb
+bindsym $mod+g exec rofi -show file-browser-extended
 # ssh rofi
 #bindsym $mod+c exec rofi -show ssh
 bindsym $mod+c exec --no-startup-id ~/.config/rofi/bin/menu_time
@@ -244,34 +246,34 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+#
+ #resize window (you can also use the mouse for that)
+ mode "resize" {
+         # These bindings trigger as soon as you enter the resize mode
 
-# resize window (you can also use the mouse for that)
-# mode "resize" {
-#         # These bindings trigger as soon as you enter the resize mode
-# 
-#         # Pressing left will shrink the window’s width.
-#         # Pressing right will grow the window’s width.
-#         # Pressing up will shrink the window’s height.
-#         # Pressing down will grow the window’s height.
-#         bindsym j resize shrink width 10 px or 10 ppt
-#         bindsym k resize grow height 10 px or 10 ppt
-#         bindsym l resize shrink height 10 px or 10 ppt
-#         bindsym semicolon resize grow width 10 px or 10 ppt
-# 
-#         # same bindings, but for the arrow keys
-#         bindsym Left resize shrink width 10 px or 10 ppt
-#         bindsym Down resize grow height 10 px or 10 ppt
-#         bindsym Up resize shrink height 10 px or 10 ppt
-#         bindsym Right resize grow width 10 px or 10 ppt
-# 
-#         # back to normal: Enter or Escape or $mod+r
-#         bindsym Return mode "default"
-#         bindsym Escape mode "default"
-#         bindsym $mod+r mode "default"
-# }
+         # Pressing left will shrink the window’s width.
+         # Pressing right will grow the window’s width.
+         # Pressing up will shrink the window’s height.
+         # Pressing down will grow the window’s height.
+         bindsym j resize shrink width 10 px or 10 ppt
+         bindsym k resize grow height 10 px or 10 ppt
+         bindsym l resize shrink height 10 px or 10 ppt
+         bindsym semicolon resize grow width 10 px or 10 ppt
 
+         # same bindings, but for the arrow keys
+         bindsym Left resize shrink width 10 px or 10 ppt
+         bindsym Down resize grow height 10 px or 10 ppt
+         bindsym Up resize shrink height 10 px or 10 ppt
+         bindsym Right resize grow width 10 px or 10 ppt
+
+         # back to normal: Enter or Escape or $mod+r
+         bindsym Return mode "default"
+         bindsym Escape mode "default"
+         bindsym $mod+r mode "default"
+ }
+#
 # Supposed to kill with center button
-bindsym --release button2 kill
+bindsym --release button2 killa
 
 # Custom config window
 for_window [class="vlc"] floating enable
@@ -285,7 +287,7 @@ assign [class="Telegram"] 9
 assign [class="Mailspring"] 7
 assign [class="MineTime"] 7
 
-# bindsym $mod+r mode "resize"
+#bindsym $mod+Return mode "resize"
 
 # Workspace config
 workspace 1 output eDP1
@@ -313,21 +315,21 @@ bar {
 
     colors {
         background #000000
-        statusline #ffffff
+        statusline #a000ff
         separator  #aaaaaa
 
         # Default conf
         # focused_workspace  #4c7899 #285577 #ffffff
         focused_workspace  #ffffff #888888 #000000
         active_workspace   #888888 #444444 #ffffff
-        inactive_workspace #888888 #444444 #ff0000
-        urgent_workspace   #2f343a #900000 #ffffff
-        binding_mode       #2f343a #900000 #ffffff
+        inactive_workspace #888888 #000000 #a000ff
+        urgent_workspace   #2f343a #600099 #ffffff
+        binding_mode       #2f343a #600099 #ffffff
     }
 
-    # separator_symbol "ʃ"
+    separator_symbol "ʃ"
     #separator_symbol "❰"
-    separator_symbol " ❱ "
+    #separator_symbol "❱"
     #separator_symbol " ▷ "
     #separator_symbol " ∠ "
     #separator_symbol "|"
