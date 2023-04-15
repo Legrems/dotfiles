@@ -29,7 +29,6 @@ unset __conda_setup
 
 
 # PM functions
-source /home/legrems/.pm/pm.zsh
 alias pma="pm add"
 alias pmg="pm go"
 alias pmrm="pm remove"
