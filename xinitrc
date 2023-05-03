@@ -44,13 +44,16 @@ xrandr --setprovideroutputsource modesetting NVIDIA-0
 #xrandr --auto
 xrandr --output eDP1 --mode 2560x1440 --scale 1x1 --primary
 
+xinput --set-prop "pointer:Razer Razer DeathAdder V2" 'libinput Accel Speed' -0.1
+
 # Swap caps + escape
 setxkbmap -option caps:swapescape
 
+#~/.screenlayout/wide.sh
+~/.screenlayout/swide.sh
+
 # Set background
-#feh --bg-fill ~/Downloads/atlantis-nexus-nebula-black-background-digital-render-3840x2400-3704.jpg
-#feh --bg-fill ~/Downloads/digital-abstract-3d-render-pattern-minimal-art-black-3840x2160-7124.jpg
-feh --bg-fill ~/Downloads/wp2618248-blackarch-wallpaper.png
+feh --bg-fill ~/Downloads/wp4473722-5120x1440-wallpapers.jpg
 
 xfsettingsd --sm-client-disable &
 

@@ -19,3 +19,8 @@ xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
 nm-applet &
 #autocutsel -fork &
 #autocutsel -selection PRIMARY -fork &
+
+flameshot &
+discord &
+firefox &
+spotify &
