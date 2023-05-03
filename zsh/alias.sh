@@ -15,6 +15,7 @@ alias ga!='git commit --amend --no-edit --date now'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
+alias fm='vifm'
 
 rs() {python manage.py runserver 127.0.0."$1":"$2"}
 
