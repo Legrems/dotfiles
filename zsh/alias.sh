@@ -12,6 +12,7 @@ alias mg='python manage.py migrate'
 alias gp='git push'
 alias ga!='git commit --amend --no-edit --date now'
 
+alias n='cd . && nvim -S'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
