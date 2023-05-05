@@ -85,8 +85,8 @@ bindsym $mod+w kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+r exec dmenu_run
-#bindsym $mod+r exec --no-startup-id ~/.config/rofi/bin/menu_powermenu
-bindsym $mod+r exec --no-startup-id ~/rofi/files/powermenu/type-2/powermenu.sh
+bindsym $mod+r exec --no-startup-id ~/.config/rofi/bin/menu_powermenu
+#bindsym $mod+r exec --no-startup-id ~/rofi/files/powermenu/type-2/powermenu.sh
 # start rofi
 bindsym $mod+p exec "rofi -modes combi -show combi run,window"
 # switch rofi
