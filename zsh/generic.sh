@@ -1,3 +1,6 @@
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=1000000
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -37,7 +40,7 @@ export AUTOENV_ENV_FILENAME='.autoenv.zsh'
 export AUTOENV_ENV_LEAVE_FILENAME='.autoenv_leave.zsh'
 export AUTOENV_ENABLE_LEAVE='yes'
 #export PS1='${SSH_TTY:+"%F{9}%n%f%F{7}@%f%F{3}%m%F "}%F{4}${_prompt_sorin_pwd}%(!. %B%F{1}#%f%b.)${editor_info[keymap]} '
-export PS1='%F{4}${_prompt_sorin_pwd}%(!. %B%F{1}#%f%b.)${editor_info[keymap]} '
+# export PS1='%F{4}${_prompt_sorin_pwd}%(!. %B%F{1}#%f%b.)${editor_info[keymap]} '
 
 # To remove the conda env on ps1, run:
 # conda config --set changeps1 False

@@ -26,11 +26,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-
-# PM functions
-alias pma="pm add"
-alias pmg="pm go"
-alias pmrm="pm remove"
-alias pml="pm list"
-# end PM

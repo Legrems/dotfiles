@@ -213,7 +213,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://github.com/vim-syntastic/syntastic.git'
 let g:syntastic_auto_loc_list=0
 let g:syntastic_enable_loc_list=0
-let g:syntastic_enable_highlighting=1
+let g:syntastautoenvic_enable_highlighting=1
 let g:syntastic_error_symbol='✗→'
 let g:syntastic_style_error_symbol='✗→'
 let g:syntastic_warning_symbol='⚠→'
