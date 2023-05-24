@@ -40,7 +40,7 @@ set shell=bash
 " http://www.shallowsky.com/linux/noaltscreen.html
 set t_ti= t_te=
 " keep more context when scrolling off the end of a buffer
-set scrolloff=3
+set scrolloff=15
 " Store temporary files in a central spot
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -79,7 +79,7 @@ augroup vimrcEx
     \ endif
 
   "for ruby, autoindent with two spaces, always expand tabs
-  autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
+  autocmd FileType ruby,haml,eruby,yaml,html,htmldjango,javascript,sass,cucumber set ai sw=4 sts=4 et
   autocmd FileType python set sw=4 sts=4 et
 
   autocmd! BufRead,BufNewFile *.sass setfiletype sass
@@ -119,6 +119,11 @@ imap <c-c> <esc>
 nnoremap <leader><leader> <c-^>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MISC COMMANDS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+cmap w!! w !sudo tee % > /dev/null
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
 " Indent if we're at the beginning of a line. Else, do completion.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -145,33 +150,39 @@ map <leader>v :view %%
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! RenameFile()
+function! RenameFile() 
     let old_name = expand('%')
-    let new_name = input('New file name: ', expand('%'), 'file')
+    let new_name = input('New file name: ', expand('%:.:h') . '/')
     if new_name != '' && new_name != old_name
         exec ':saveas ' . new_name
         exec ':silent !rm ' . old_name
         redraw!
     endif
 endfunction
-map <leader>n :call RenameFile()<cr>
+map <leader>m :call RenameFile()<cr>
 
-function! RandomHexString(...)
-    let random_string = system('cat /dev/urandom | tr -dc "0-9a-f" | head -c '.shellescape(a))
+function! RandomHexString()
+    let string_length = input('String length: ')
+    let random_string = system('cat /dev/urandom | tr -dc "0-9a-f" | head -c '.shellescape(string_length))
+
+    call setline(line('.'), getline('.') . random_string)
     return random_string
 endfunction
 
-function! RandomString(...)
-    let random_string = system('cat /dev/urandom | tr -dc "0-9A-z" | head -c '.shellescape(a))
+function! RandomString()
+    let string_length = input('String length: ')
+    let random_string = system('cat /dev/urandom | tr -dc "0-9A-z" | head -c '.shellescape(string_length))
+
+    call setline(line('.'), getline('.') . random_string)
     return random_string
 endfunction
 
-command! -range Md5 :echo system('echo '.shellescape(join(getline(<line1>, <line2>), '\n')) . '| md5sum')
+map <leader>rhs :call RandomHexString()<CR>
+map <leader>rs :call RandomString()<CR>
 
-command! -nargs=1 RandomHexString :normal a<c-r>=RandomHexString(<f-args>)<cr>
-command! -nargs=1 RandomString :normal a<c-r>=RandomString(<f-args>)<cr>
+command! -range Sha :call append(line('.'), system('echo '.shellescape(join(getline(<line1>, <line2>), '\n')) . "| sha1sum | awk '{print $1}'"))
 
-command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
+command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S %z')<cr>
 ""colorscheme desert
 
 "" Status line full path for filename
@@ -243,6 +254,8 @@ let g:fzf_preview_git_status_preview_command =
     \ "[[ $(git diff --cached -- {-1}) != \"\" ]] && git diff --cached --color=always -- {-1} | delta || " .
     \ "[[ $(git diff -- {-1}) != \"\" ]] && git diff --color=always -- {-1} | delta || " .
     \ g:fzf_preview_command
+
+let g:fzf_preview_directory_files_command = "rg --files --no-ignore-vcs -g\'!.git\'"
 
 Plug 'https://github.com/shumphrey/fugitive-gitlab.vim'
 Plug 'https://tpope.io/vim/surround.git'
@@ -435,11 +448,15 @@ Plug 'fannheyward/telescope-coc.nvim'
 
 Plug 'https://github.com/ludovicchabant/vim-gutentags.git'
 
+Plug 'https://github.com/dbeniamine/cheat.sh-vim'
+
 " API testing
 "Plug 'baverman/vial'
 "Plug 'baverman/vial-http'
 
 Plug 'emaniacs/vim-rest-console'
+
+Plug 'mbbill/undotree'
 
 let g:vrc_output_buffer_name = '__VRC_OUTPUT.json'
 
@@ -500,16 +517,17 @@ nnoremap <C-c> :vertical topleft Git <bar> vertical resize 50<CR>
 "nnoremap <C-G> :Files<CR>
 " Ignore ignored files => all files
 "nnoremap <C-G> :CocCommand fzf-preview.DirectoryFiles --no-ignore-vcs<CR>
-nnoremap <C-G> :CocCommand fzf-preview.ProjectFiles<CR>
+nnoremap <C-G> :CocCommand fzf-preview.GitFiles<CR>
 " Search git file name
 "nnoremap <C-X> :GFiles<CR>
-"nnoremap <C-X> :CocCommand fzf-preview.DirectoryFiles<CR>
-nnoremap <C-X> :CocCommand fzf-preview.GitFiles<CR>
+nnoremap <C-X> :CocCommand fzf-preview.DirectoryFiles<CR>
+"nnoremap <C-X> :CocCommand fzf-preview.GitFiles<CR>
 " Search buffers
 "nnoremap <C-B> :Buffers<CR>
 nnoremap <C-B> :CocCommand fzf-preview.Buffers<CR>
 " Open Flake8 error
-nnoremap <C-E> :Errors<CR>
+"nnoremap <C-E> :Errors<CR>
+nnoremap <C-E> :CocCommand fzf-preview.MruFiles<CR>
 " Force write as unix type (/n instead of /r/n)
 nnoremap <C-s> :w! ++ff=unix<CR>
 " Force quit
@@ -518,6 +536,22 @@ nnoremap <C-q> :q!<CR>
 " nnoremap <C-d> :Gdiffsplit<CR>
 nnoremap <C-d> :tab Git diff %<CR>
 nnoremap <C-p> :tab Git diff<CR>
+
+nnoremap <C-o> :UndotreeToggle<CR>
+
+if has("persistent_undo")
+   let target_path = expand('~/.undodir')
+
+    " create the directory and any parent directories
+    " if the location does not exist.
+    if !isdirectory(target_path)
+        call mkdir(target_path, "p", 0700)
+    endif
+
+    let &undodir=target_path
+    set undofile
+endif
+
 " Using git-delta
 " Buffer 
 
@@ -541,6 +575,10 @@ vnoremap <space> zf
 nnoremap <leader>dl <HOME>d$
 nnoremap <c-left> :bprevious<CR>
 nnoremap <c-right> :bnext<CR>
+"nnoremap <c-k> :bprevious<CR>
+"nnoremap <c-j> :bnext<CR>
+nnoremap <TAB> :bnext<CR>
+nnoremap <S-TAB> :bprevious<CR>
 
 " Goto file under location
 nnoremap <leader>gf :vertical wincmd f<CR>

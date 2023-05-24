@@ -2,3 +2,4 @@
 .autoenv_leave.zsh
 tags
 Session.vim
+*.rest
