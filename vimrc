@@ -523,7 +523,7 @@ nnoremap <C-G> :CocCommand fzf-preview.GitFiles<CR>
 nnoremap <C-X> :CocCommand fzf-preview.DirectoryFiles<CR>
 "nnoremap <C-X> :CocCommand fzf-preview.GitFiles<CR>
 " Search buffers
-"nnoremap <C-B> :Buffers<CR>
+" nnoremap <C-B> :Buffers<CR>
 nnoremap <C-B> :CocCommand fzf-preview.Buffers<CR>
 " Open Flake8 error
 "nnoremap <C-E> :Errors<CR>

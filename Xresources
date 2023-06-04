@@ -53,7 +53,11 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 
 !URxvt*font: xft:DejaVuSansMono:size=12:style=dzForPowerline
-URxvt*font: xft:Courier New:size=12:style=dzForPowerline
+! URxvt*font: xft:Courier New:size=12:style=dzForPowerline
+URxvt*font: xft:JetBrainsMono Nerd Font:size=12
+URxvt*boldFont: xft:JetBrainsMono Nerd Font:size=12
+URxvt*italicFont: xft:JetBrainsMono Nerd Font:size=12
+URxvt*boldItalicFont: xft:JetBrainsMono Nerd Font:size=12
 URxvt.letterSpace: -1
 !URxvt.keysym.Alt-Up:   resize-font:bigger
 !URxvt.keysym.Alt-Down: resize-font:smaller
