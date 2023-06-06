@@ -22,7 +22,7 @@ rs() {python manage.py runserver 127.0.0."$1":"$2"}
 cheat() { curl cheat.sh/"$1" }
 cda() { conda activate "$@" }
 cdd() { conda deactivate "$@" }
-cdc() { conda create --name "$@" python=3.7 pip ipython memory_profiler psycopg2 black isort }
+cdc() { conda create --name "$@" python=3.9 pip ipython memory_profiler psycopg2 black isort poetry }
 cdi() { conda info --envs "$@" }
 ca() { pygmentize -g "$@" }
 grepf() { grep -rnw ./ -e "$@"}

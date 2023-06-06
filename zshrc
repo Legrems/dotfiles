@@ -26,3 +26,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+eval "$(zoxide init zsh)"
+
+export PATH="/home/legrems/Documents/mattermost:$PATH"
