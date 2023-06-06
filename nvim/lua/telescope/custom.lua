@@ -19,7 +19,7 @@ require("telescope").setup{
     mappings = {
       i = {
         ["<esc>"] = actions.close,
-        ["<C-u>"] = false
+        ["<C-u>"] = false,
       },
     },
     theme = "ivy",
@@ -28,7 +28,7 @@ require("telescope").setup{
       git_branches = {
           mappings = {
               i = {
-                  ["<C-b>"] = interactive_rebase
+                  ["<C-b>"] = interactive_rebase,
               },
           },
       },

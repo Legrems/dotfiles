@@ -8,14 +8,16 @@ alias pm='python manage.py'
 alias pmt='clear && pm test'
 alias sp='python manage.py shell_plus'
 alias mkmg='python manage.py makemigrations'
+alias pms='pm showmigrations'
 alias mg='python manage.py migrate'
 alias gp='git push'
 alias ga!='git commit --amend --no-edit --date now'
 
+alias n='cd . && nvim -S'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
-alias fm='vifm'
+alias fm='vifm .'
 
 rs() {python manage.py runserver 127.0.0."$1":"$2"}
 
