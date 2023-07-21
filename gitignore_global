@@ -3,3 +3,8 @@
 tags
 Session.vim
 *.rest
+cert.crt
+cert.key
+local_gestion_ssh_key
+local_gestion_ssh_key.pub
+start_vms.sh

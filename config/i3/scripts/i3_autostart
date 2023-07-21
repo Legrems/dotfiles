@@ -26,6 +26,9 @@ fi
 # Enable power management
 xfce4-power-manager &
 
+# Enable wireguard tray
+conda activate base && wg-tray &
+
 # Enable Super Keys For Menu
 ksuperkey -e 'Super_L=Alt_L|F1' &
 ksuperkey -e 'Super_R=Alt_L|F1' &
@@ -36,13 +39,13 @@ xsetroot -cursor_name left_ptr
 # Restore wallpaper
 "$idir"/themes/wallpaper.sh
 
-# Lauch notification daemon
+# Launch notification daemon
 "$idir"/scripts/i3_dunst
 
-# Lauch polybar
+# Launch polybar
 "$idir"/scripts/i3_bar
 
-# Lauch compositor
+# Launch compositor
 "$idir"/scripts/i3_comp
 
 # Start mpd

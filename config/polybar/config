@@ -47,7 +47,7 @@ font-1 = unifont:fontformat=truetype:size=6:antialias=false;4
 font-2 = Wuncon Siji:pixelsize=4;0
 
 modules-left = i3
-modules-right = wlan battery date
+modules-right = pulseaudio date
 
 
 tray-position = right
@@ -105,8 +105,8 @@ font-1 = unifont:fontformat=truetype:size=6:antialias=false;4
 font-2 = Wuncon Siji:pixelsize=4;0
 
 modules-left = i3
-modules-center = backlight pulseaudio
-modules-right = wlan battery date
+modules-center = network
+modules-right = pulseaudio date
 
 tray-position = right
 tray-padding = 2

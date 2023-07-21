@@ -12,9 +12,11 @@ def i3_command(command, *args, **kwargs):
 def get_workspaces():
     return i3_command("-t", "get_workspaces")
 
-def get_outputs():
+def get_output():
     return i3_command("-t", "get_outputs")
 
+def test():
+    pass
 
 print(get_workspaces())
-print(get_outputs())
+print(get_output())
