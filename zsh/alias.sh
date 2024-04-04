@@ -32,6 +32,8 @@ amendnow() { GIT_COMMITTER_DATE="$(date +%d/%m/%Y' '%H:%M:%S)" git commit --amen
 continous-running() { while true; do inotifywait $1 -r -e close_write && ${@:2}; done }
 f() { find . -name "*$1*"; }
 
+# branch-version() {for var in "$@" do curl "https://main.arcastore.ch/arcanite-gestion/version/arcanite-gestion.$var" done}
+
 tar-create() {tar cfv $@}
 tar-list() {tar -tvf $@}
 tar-extract() {tar xfv $@}
@@ -48,7 +50,11 @@ alias activate_venv_gestion="cda arcanite-gestion39 && cd /home/legrems/Document
 alias cls="ls -lha --color=always -F --group-directories-first |awk '{k=0;s=0;for(i=0;i<=8;i++){;k+=((substr(\$1,i+2,1)~/[rwxst]/)*2^(8-i));};j=4;for(i=4;i<=10;i+=3){;s+=((substr(\$1,i,1)~/[stST]/)*j);j/=2;};if(k){;printf(\"%0o%0o \",s,k);};print;}'"
 alias lcs="ls -lhaS --color=always -F --group-directories-first |awk '{k=0;s=0;for(i=0;i<=8;i++){;k+=((substr(\$1,i+2,1)~/[rwxst]/)*2^(8-i));};j=4;for(i=4;i<=10;i+=3){;s+=((substr(\$1,i,1)~/[stST]/)*j);j/=2;};if(k){;printf(\"%0o%0o \",s,k);};print;}'"
 
-alias open_keepass="keepassxc-cli open ~/Documents/keepassxc/main.kdbx --key-file ~/Documents/keepassxc/main.key"
+alias open_keepass="keepassxc-cli open ~/KeepassXC/main.kdbx --key-file ~/KeepassXC/main.key"
+
+kpxc() {
+    cat ~/.pw.gpg | gpg -d | keepassxc-cli $1 ~/KeepassXC/main.kdbx --key-file ~/KeepassXC/main.key ${@:2}
+}
 
 
 #export FZF_DEFAULT_COMMAND='ag --hidden -g ""'

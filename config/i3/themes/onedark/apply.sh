@@ -277,6 +277,7 @@ apply_i3wm() {
 	
 	# restart i3wm
 	i3-msg restart
+    betterlockscreen -w
 }
 
 # Create Theme File -------------------------

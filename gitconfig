@@ -2,12 +2,12 @@
 	email = loic.gremaud@arcanite.ch
 	name = Loïc Gremaud
     ;signingkey = 8B2741BF148B1059065A71EEE81E8B180465D116 ;540
-    ;signingkey = BAE2CD06F0A3753A0F8D0A21D4620E6DF3E0121D ;539
+    signingkey = BAE2CD06F0A3753A0F8D0A21D4620E6DF3E0121D ;539
     ;signingkey = 4F78275C96E34F56920CF7B5CACB2A128E557EFD ;W
-    signingkey = C6424C524F8B4D0B0C6F9380ACD9F65FA7E19986;USB-C
+    ;signingkey = C6424C524F8B4D0B0C6F9380ACD9F65FA7E19986;USB-C
     token = REPLACE HERE TOKEN
 [commit]
-	gpgSign = true
+	gpgSign = false
 [gpg]
 	program = gpg2
 [tag]
@@ -21,8 +21,19 @@
 	adog = log --all --decorate --oneline --graph
 	dog = log --decorate --oneline --graph
 	count-lines = "! git log --author=\"$1\" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s, removed lines: %s, total lines: %s\\n\", add, subs, loc }' #"
+	fpush = push
 [push]
 	default = current
 [core]
     editor = nvim
 	excludesfile = /home/legrems/.gitignore_global
+[rerere]
+	enabled = true
+[maintenance]
+	repo = /home/legrems/Documents/PolyLAN/polylan-site
+	repo = /home/legrems/Documents/Arcanite/arcanite-gestion
+	repo = /home/legrems/Documents/Arcanite/salt
+[gitbutler]
+    utmostDiscretion = 1
+[branch]
+	sort = -committerdate

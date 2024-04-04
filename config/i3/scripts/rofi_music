@@ -4,7 +4,7 @@
 
 # Import Current Theme
 DIR="$HOME/.config/i3"
-STYLE="gruvbox"
+STYLE="onedark"
 RASI="$DIR/themes/$STYLE/rofi/music.rasi"
 
 # Theme Elements

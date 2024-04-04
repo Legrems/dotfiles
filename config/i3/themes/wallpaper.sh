@@ -4,5 +4,5 @@
 ##
 ## Apply wallpaper on i3 startup
 
-WALLPAPER='/home/legrems/.config/i3/themes/gruvbox/wallpaper'
-hsetroot -root -cover "$WALLPAPER"
+WALLPAPER='/home/legrems/.config/i3/themes/onedark/wallpaper'
+hsetroot -roo -cover "$WALLPAPER"
