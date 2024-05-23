@@ -22,3 +22,8 @@ returner-consumer-stderr.log
 returner-consumer-stdout.log
 
 celery-exporter
+
+.gitlab.nvim
+
+arcanite_gestion/lib/
+dependencies.html

@@ -320,7 +320,7 @@ tiling_drag modifier titlebar
 ## Syntax:
 #exec [--no-startup-id] <command>
 #exec_always [--no-startup-id] <command>
-exec_always --no-startup-id setxkbmap -option caps:swapescape
+exec_always --no-startup-id setxkbmap us
 exec_always --no-startup-id ~/.screenlayout/default.sh
 exec_always --no-startup-id ~/.config/i3/scripts/i3_autostart
 
