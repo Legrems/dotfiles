@@ -36,9 +36,6 @@ export NB_PROXMOXS=2
 export VAGRANT_ABACUS_BOX="ubuntu/focal64"
 export VISUAL=nvim
 export EDITOR=nvim
-export AUTOENV_ENV_FILENAME='.autoenv.zsh'
-export AUTOENV_ENV_LEAVE_FILENAME='.autoenv_leave.zsh'
-export AUTOENV_ENABLE_LEAVE='yes'
 #export PS1='${SSH_TTY:+"%F{9}%n%f%F{7}@%f%F{3}%m%F "}%F{4}${_prompt_sorin_pwd}%(!. %B%F{1}#%f%b.)${editor_info[keymap]} '
 # export PS1='%F{4}${_prompt_sorin_pwd}%(!. %B%F{1}#%f%b.)${editor_info[keymap]} '
 
@@ -48,5 +45,3 @@ export AUTOENV_ENABLE_LEAVE='yes'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval $(thefuck --alias)
-
-source ~/.autoenv/activate.sh
