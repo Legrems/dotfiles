@@ -7,7 +7,7 @@
     ;signingkey = C6424C524F8B4D0B0C6F9380ACD9F65FA7E19986;USB-C
     token = REPLACE HERE TOKEN
 [commit]
-	gpgSign = false
+	gpgSign = true
 [gpg]
 	program = gpg2
 [tag]

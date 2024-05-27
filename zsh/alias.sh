@@ -37,8 +37,8 @@ f() { find . -name "*$1*"; }
 tar-create() {tar cfv $@}
 tar-list() {tar -tvf $@}
 tar-extract() {tar xfv $@}
-us-layout() {setxkbmap us -option caps:swapescape }
-usint-layout() {setxkbmap us -variant intl -option caps:swapescape }
+us-layout() {setxkbmap us }
+usint-layout() {setxkbmap us -variant intl }
 
 make_venv() {
     echo $(basename $(pwd) | awk '{print "conda activate "$1}') > $(pwd | awk '{print $1"/.autoenv.zsh"}')
