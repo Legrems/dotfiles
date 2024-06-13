@@ -27,3 +27,5 @@ celery-exporter
 
 arcanite_gestion/lib/
 dependencies.html
+
+shadow_script.py
