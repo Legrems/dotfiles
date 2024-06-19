@@ -21,6 +21,7 @@ mkdir .config/nvim
 ~/Documents/dotfiles/create_symlinks.sh
 
 ln -s /home/legrems/Documents/dotfiles/neovim /home/legrems/.config/nvim
+ln -s /home/legrems/Documents/dotfiles/prompt_sorin_setup /home/legrems/.zprezto/modules/prompt/functions/
 
 # Cdwe
 cargo install cdwe
