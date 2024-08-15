@@ -24,6 +24,9 @@ returner-consumer-stdout.log
 celery-exporter
 
 .gitlab.nvim
+.prettierrc
+
+*.sqlite3
 
 arcanite_gestion/lib/
 dependencies.html

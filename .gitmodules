@@ -4,3 +4,6 @@
 [submodule "scripts"]
 	path = scripts
 	url = git@github.com:Legrems/scripts.git
+[submodule "scripts-hidden"]
+	path = scripts-hidden
+	url = git@github.com:Legrems/scripts-hidden.git

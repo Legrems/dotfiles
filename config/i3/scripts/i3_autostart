@@ -49,4 +49,4 @@ xsetroot -cursor_name left_ptr
 "$idir"/scripts/i3_comp
 
 # Start mpd
-exec mpd &
+# exec mpd &

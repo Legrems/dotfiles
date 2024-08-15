@@ -5,7 +5,7 @@ import json
 def i3_command(command, *args, **kwargs):
     try:
         return json.loads(sh.i3_msg(command, *args, **kwargs).stdout)
-    except:
+    except Exception:
         return []
 
 
@@ -18,5 +18,6 @@ def get_output():
 def test():
     pass
 
-print(get_workspaces())
-print(get_output())
+if __name__ == "__main__":
+    print(get_workspaces())
+    print(get_output())
