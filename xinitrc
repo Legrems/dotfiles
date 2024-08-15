@@ -47,10 +47,11 @@ xrandr --output eDP1 --mode 2560x1440 --scale 1x1 --primary
 xinput --set-prop "pointer:Razer Razer DeathAdder V2" 'libinput Accel Speed' -0.1
 
 # Swap caps + escape
-setxkbmap -option caps:swapescape
+# setxkbmap -option caps:swapescape
+setxkbmap us
 
 #~/.screenlayout/wide.sh
-~/.screenlayout/swide.sh
+~/.screenlayout/default.sh
 
 # Set background
 feh --bg-fill ~/Downloads/wp4473722-5120x1440-wallpapers.jpg

@@ -82,7 +82,7 @@ run_cmd() {
 	elif [[ "$1" == '--opt2' ]]; then
 		confirm_run 'i3-msg exit'
 	elif [[ "$1" == '--opt3' ]]; then
-		confirm_run 'mpc -q pause' 'pulsemixer --mute' 'betterlockscreen --suspend'
+		confirm_run 'pulsemixer --mute' 'betterlockscreen --suspend'
 	elif [[ "$1" == '--opt4' ]]; then
 		confirm_run 'systemctl hibernate'
 	elif [[ "$1" == '--opt5' ]]; then
