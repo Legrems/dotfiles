@@ -7,3 +7,6 @@
 [submodule "scripts-hidden"]
 	path = scripts-hidden
 	url = git@github.com:Legrems/scripts-hidden.git
+[submodule "neovim-config"]
+	path = neovim-config
+	url = git@github.com:Legrems/neovim-config.git
