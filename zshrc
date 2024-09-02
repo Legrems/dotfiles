@@ -22,3 +22,7 @@ eval "$(zoxide init zsh | sed -e 's/\\builtin cd/cdwe/g')"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export KEYTIMEOUT=1
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
+
+zstyle ':completion:*' menu select

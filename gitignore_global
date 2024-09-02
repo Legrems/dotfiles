@@ -28,6 +28,8 @@ celery-exporter
 
 *.sqlite3
 
+pyrightconfig.json
+
 arcanite_gestion/lib/
 dependencies.html
 
