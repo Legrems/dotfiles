@@ -3,6 +3,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias lla='ls -al'
 alias mux='tmuxinator'
+alias i="ipython"
 
 alias pm='python manage.py'
 alias pmt='clear && pm test'

@@ -2,6 +2,7 @@
 .autoenv_leave.zsh
 tags
 Session.vim
+.exrc
 *.rest
 cert.crt
 cert.key
@@ -27,6 +28,8 @@ celery-exporter
 .prettierrc
 
 *.sqlite3
+
+pyrightconfig.json
 
 arcanite_gestion/lib/
 dependencies.html

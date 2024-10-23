@@ -3,10 +3,13 @@
 	url = https://github.com/Legrems/nv-chad.git
 [submodule "scripts"]
 	path = scripts
-	url = git@github.com:Legrems/scripts.git
+	url = ../scripts.git
 [submodule "scripts-hidden"]
 	path = scripts-hidden
-	url = git@github.com:Legrems/scripts-hidden.git
+	url = ../scripts-hidden.git
 [submodule "neovim-config"]
 	path = neovim-config
-	url = git@github.com:Legrems/neovim-config.git
+	url = ../neovim-config.git
+[submodule "hyprland-config"]
+	path = hyprland-config
+	url = ../hyprland-config.git
