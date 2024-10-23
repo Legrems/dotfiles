@@ -2,6 +2,7 @@
 .autoenv_leave.zsh
 tags
 Session.vim
+.exrc
 *.rest
 cert.crt
 cert.key
