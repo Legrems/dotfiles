@@ -10,3 +10,6 @@
 [submodule "neovim-config"]
 	path = neovim-config
 	url = ../neovim-config.git
+[submodule "hyprland-config"]
+	path = hyprland-config
+	url = ../hyprland-config.git
