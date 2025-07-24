@@ -36,3 +36,11 @@ dependencies.html
 
 shadow_script.py
 flower_db*
+
+abahost/static/
+
+g_*
+gl_*
+
+
+.gitlab-ci-local/

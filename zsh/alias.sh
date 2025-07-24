@@ -19,6 +19,25 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias fm='vifm .'
+alias git-testpush="git checkout master && git pull && git checkout testing && git pull && git merge master && git push"
+alias git-prodpush="git checkout master && git pull && git checkout prod && git pull && git merge master && git push"
+alias git-intpush="git checkout master && git pull && git checkout abahost-int && git pull && git merge master && git push"
+alias git-stackpush="git checkout master && git pull && git checkout deep && git pull && git merge master && git push && git checkout pay && git pull && git merge master && git push && git checkout services && git pull && git merge master && git push"
+
+# alias megapush="git checkout master && git pull && git checkout deep && git pull && git merge master && git push && git push deep && git checkout pay && git pull && git merge master && git push && git push pay && git checkout services && git pull && git merge master && git push && git push abaservices" # The real megapush
+
+poetry-version() {
+    poetry version $1 &&
+    version=$(poetry version | cut -d' ' -f2) &&
+    git add . && git commit -m "chore(release): $version"
+}
+
+poetry-version-release() {
+    poetry-version $1 &&
+    version=$(poetry version | cut -d' ' -f2) &&
+    echo "Creating tag $version" &&
+    git tag -a $version -m "Release $version"
+}
 
 rs() {python manage.py runserver 127.0.0."$1":"$2"}
 
